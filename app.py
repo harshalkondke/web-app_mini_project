@@ -17,7 +17,7 @@ adminid = "admin"
 adminpass = "adminpass"
 
 
-# responses aren't from cached in the browser
+# responses aren't from cached
 @app.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
