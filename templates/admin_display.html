@@ -1,0 +1,39 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}
+    Display data
+{% endblock %}
+
+{% block main %}
+    <h2>All students in database</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Div</th>
+                <th>Age</th>
+                <th>Department</th>
+                <th>Department Location</th>
+                <th>Project Name</th>
+                <th>Project Guide</th>
+                <th>CGPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in seestudent %}
+                <tr>
+                    <td>{{ student.username }}</td>
+                    <td>{{ student.stdFname }}&nbsp;{{ student.stdLame }}</td>
+                    <td>{{ student.stdDiv}}</td>
+                    <td>{{ student.stdAge }}</td>
+                    <td>{{ student.D_name }}</td>
+                    <td>{{ student.D_location }}</td>
+                    <td>{{ student.P_name }}</td>
+                    <td>{{ student.P_guide }}</td>
+                    <td>{{ student.CGPA }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

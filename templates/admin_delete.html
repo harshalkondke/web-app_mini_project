@@ -1,0 +1,17 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}
+    Delete Student
+{% endblock %}
+
+{% block main %}
+    <form action="/admin_delete" method="post">
+         <div class="form-group">
+                 <h6>Are you sure want to delete student: :
+                    <input autocomplete="off" autofocus class="form-control" name="delete_username" placeholder="Username to deleted " type="text" required/>
+                 </h6>
+            </div>
+
+        <button class="btn btn-primary" type="submit">DELETE</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Student
+{% endblock %}
+
+{% block main %}
+    <form action="/delete" method="post">
+         <div class="form-group">
+                 <h6>Are you sure want to delete yourself: :
+                    <select name="delete_me" autofocus class="form-control">
+                        <option >Select option</option>
+                        <option value="yes">YES</option>
+                    </select>
+                 </h6>
+            </div>
+
+        <button class="btn btn-primary" type="submit">DELETE</button>
+    </form>
+{% endblock %}
