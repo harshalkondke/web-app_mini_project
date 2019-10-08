@@ -132,7 +132,7 @@ def std_add():
 
 
 @app.route("/admin_delete", methods=["GET", "POST"])
-@login_required
+@login_required_admin
 def admin_delete():
     if request.method == "POST":
         db.execute("DELETE FROM student WHERE username = :deletestd",
@@ -156,13 +156,13 @@ def std_delete():
 
 
 @app.route("/admin_panel", methods=["GET", "POST"])
-@login_required
+@login_required_admin
 def admin_panel():
     return render_template("admin_home.html")
 
 
 @app.route("/admin_display", methods=["GET", "POST"])
-@login_required
+@login_required_admin
 def admin_display():
     if request.method == "GET":
         seestudent = db.execute("SELECT * FROM student")
@@ -171,7 +171,7 @@ def admin_display():
 
 
 @app.route("/admin_add", methods=["GET", "POST"])
-@login_required
+@login_required_admin
 def admin_add():
     # if form is already filled and need to be submitted
     if request.method == "POST":
@@ -316,6 +316,9 @@ def register():
         # Ensure username was submitted
         if not request.form.get("username"):
             return apology("must provide username", 400)
+        
+        elif (request.form.get("username") = "admin"):
+            return apology("you are not admin", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
