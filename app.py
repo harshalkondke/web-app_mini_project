@@ -317,7 +317,7 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 400)
         
-        elif (request.form.get("username") = "admin"):
+        elif (request.form.get("username") == "admin"):
             return apology("you are not admin", 400)
 
         # Ensure password was submitted
